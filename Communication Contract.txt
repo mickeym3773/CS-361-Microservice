@@ -1,13 +1,12 @@
 Communication Contract:
 
-Instructions for how to REQUEST data:
+Once the user starts this process it will wait/listen for a file 'vehicleJSON-serviceIN.txt' (which should already exist in the same directory) to have data in it to read from. It will then take the data to call the selected API function appropriately. The result will be printed out to an output file 'vehicleJSON-serviceOUT.txt' (this will be created if it does not already exist). The input text file will be cleared empty during this process so that another command can be written to it and the listener process can make another API call.
 
-The user will call getVehicleJSON(method_name, args = []) in python where method_name is the name of the method and args is the list of strings that represents the arguments for an API method. 
+The data should include the method name and, if there are any, any additional arguments. The method name should be one word (case does not matter) as should each individual argument (just separate each token with a space, no parenthesis or commas or anything like that, example:  GetVehicleTypesForMake mercedes). Also arguments should be given in the order they appear on the API site.
 
-method_name: The correct format for method_name is as followed. Case and spacing does not matter. The names of the API Methods (found here: https://vpic.nhtsa.dot.gov/api/) will work with most cases except for when the names of the API Methods are longer than their URL-method-name-segment equivalent. For example: "Get Vehicle Types for Make by ID" method is called with "Get Vehicle Types For Make Id" (no by). When in doubt consult the urls for the API method calls. Another confusing one is "Get Makes for Manufacturer by Manufacturer Name," which is called with "Get Make for Manufacturer" ('Make' is singular in the request call). Also for Get Models for Make and a combination of Year and Vehicle Type, the order must be make, model year, vehicle type.
+And for method names don't using the title, i.e.
+'Get Makes for Manufacturer by Manufacturer Name and Year'
+but rather the name part in the url:
+/vehicles/GETMAKESFORMANUFACTURERANDYEAR/mer?year=2013&format=json
 
-args: If args is not included, then no arguments for the method_name will be supplied. Otherwise, a list of strings should be specified for the API method calls that require more information (example: Get Makes for Manufacturer by Manufacturer Name). Also for "Get Models for Make and a combination of Year and Vehicle Type," the order must be make, model year, vehicle type.
-
-Instructions for how to RECEIVE data:
-
-Once the request has been sent successfully, the calling method will return the JSON object with the appropriate data. It is then up to the user to do what they wish with this JSON object. If the request failed, an error will occur.
+The process runs forever so it will have to be manually terminated, but I can change it to make the listener wait for an 'exit' keyword instead if needed.
