@@ -14,8 +14,8 @@ The process runs forever so it will have to be manually terminated, but I can ch
 -------REVISED-------
 
 EXAMPLE CALLS:
-To get all makes:
 
+To get all makes:
 GetAllMakes
 
 To get manufactorer details from all Honda cars:
