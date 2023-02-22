@@ -9,6 +9,9 @@ And for method names don't using the title, i.e.
 but rather the name part in the url:
 /vehicles/GETMAKESFORMANUFACTURERANDYEAR/mer?year=2013&format=json
 
+The process runs forever so it will have to be manually terminated, but I can change it to make the listener wait for an 'exit' keyword instead if needed.
+
+-------REVISED-------
 
 EXAMPLE CALLS:
 To get all makes:
@@ -16,8 +19,6 @@ GetAllMakes
 
 To get manufactorer details from all Honda cars:
 GetManufacturerDetails Honda
-
-The process runs forever so it will have to be manually terminated, but I can change it to make the listener wait for an 'exit' keyword instead if needed.
 
 
 Sequence Diagram:
