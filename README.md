@@ -20,6 +20,9 @@ GetAllMakes
 To get manufactorer details from all Honda cars:
 GetManufacturerDetails Honda
 
+To get makes for Mercedes cars in 2013:
+GetMakesForManufacturerAndYear Mercedes 2013
+
 
 Sequence Diagram:
 ![image](https://user-images.githubusercontent.com/77367181/220760539-f8fa25e9-3c88-4041-b45d-80aac34d0d5f.png)
