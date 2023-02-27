@@ -30,12 +30,12 @@ def getVehicleJSON(method_name, args = []):
 
     # Decode VIN
     if method_name_lower == "decodevin":
-        url+= "/" + args[0] + "?format=JSON"
+        url+= "/" + args[0] + "?"
         if len(args) > 1:
             url += "&modelyear=" + args[1]
         print(url)
     # Get WMIs for Manufacturer
-    if method_name_lower == "getwmisformanufacturer":
+    elif method_name_lower == "getwmisformanufacturer":
       url += "/"
       for i in range(0, len(args)):
           if i == 2:
